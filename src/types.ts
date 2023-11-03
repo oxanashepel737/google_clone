@@ -18,3 +18,15 @@ export interface CountryLookUpResponse {
     timezone: string,
     utcOffset: string
 }
+
+export interface WebSearchResult {
+    kind: string,
+    title: string,
+    htmlTitle: string,
+    link: string,
+    displayLink: string,
+    snippet: string,
+    htmlSnippet: string,
+    formattedUrl: string,
+    htmlFormattedUrl: string
+}
