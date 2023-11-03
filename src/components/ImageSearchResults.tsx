@@ -1,5 +1,6 @@
 import {ImageSearchResult} from "@/types";
 import Link from "next/link";
+import PaginationButtons from "@/components/PaginationButtons";
 
 const ImageSearchResults = ({results}:
                                 { results: Array<ImageSearchResult> }) => {
@@ -33,6 +34,9 @@ const ImageSearchResults = ({results}:
                         </div>
                     ))
                 }
+            </div>
+            <div className="ml-16">
+                <PaginationButtons />
             </div>
         </div>
     )

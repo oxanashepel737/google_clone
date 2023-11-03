@@ -1,12 +1,13 @@
 import {WebSearchInformation, WebSearchResult} from "@/types";
 import Link from "next/link";
 import Parser from "html-react-parser";
+import PaginationButtons from "@/components/PaginationButtons";
 
 const WebSearchResults = ({results, searchResult}:
-                              { results: Array<WebSearchResult>, searchResult: WebSearchInformation}) => {
+                              { results: Array<WebSearchResult>, searchResult: WebSearchInformation }) => {
     return (
-        <div className='w-full mx-auto px-3 pb-24 sm:pl-[5%]
-        md:pl-[14%] lg:pl-52'
+        <div className='w-full mx-auto px-3 pb-40 sm:pl-[5%]
+        md:pl-[14%] lg:pl-52 sm:pb-24'
         >
             <p className='text-gray-600 text-sm mb-5 mt-3'>
                 About {searchResult.formattedTotalResults} results (
@@ -37,6 +38,7 @@ const WebSearchResults = ({results, searchResult}:
                     </div>
                 )
             }
+            <PaginationButtons/>
         </div>
     )
 }
