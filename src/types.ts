@@ -30,3 +30,11 @@ export interface WebSearchResult {
     formattedUrl: string,
     htmlFormattedUrl: string
 }
+
+export interface WebSearchInformation {
+    searchTime: number,
+    formattedSearchTime: string,
+    totalResults: string,
+    formattedTotalResults: string
+
+}

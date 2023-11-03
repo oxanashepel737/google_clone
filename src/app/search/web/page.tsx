@@ -1,11 +1,15 @@
-import {WebSearchResult} from "@/types";
+import {WebSearchInformation, WebSearchResult} from "@/types";
 import Link from "next/link";
+import WebSearchResults from "@/components/WebSearchResults";
 
 const WebSearchPage = async ({searchParams}: { searchParams: { searchTerm: string } }) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}
     &cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`);
     const data = await response.json();
     const results: Array<WebSearchResult> = data.items;
+    const searchResult:WebSearchInformation = data.searchInformation;
+    console.log(data);
     if (!response.ok) {
         throw new Error('Something went wrong')
     }
@@ -27,9 +31,11 @@ const WebSearchPage = async ({searchParams}: { searchParams: { searchTerm: strin
     return (
         <>
             {
-                results && results.map((result, k) =>
-                    <h1 key={`${result.title}${k}`}>{result.title}</h1>
-                )
+                results && searchResult &&
+                <WebSearchResults
+                    results={results}
+                    searchResult={searchResult}
+                />
             }
         </>
     )
