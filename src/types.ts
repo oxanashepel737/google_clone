@@ -36,5 +36,16 @@ export interface WebSearchInformation {
     formattedSearchTime: string,
     totalResults: string,
     formattedTotalResults: string
+}
 
+export interface ImageSearchResult {
+    kind: string,
+    title: string,
+    htmlTitle: string,
+    link: string,
+    displayLink: string,
+    snippet: string,
+    htmlSnippet: string,
+    mime: string,
+    fileFormat: string,
 }
